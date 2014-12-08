@@ -18,7 +18,7 @@
     <div class="row">
     
     <div>
-        <img src="cover.png" >
+        <img src="image/cover.png" >
         <ul class="nav nav-tabs">
             <li><a href="home.jsp"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-plane"></span> Vehicle<b class="caret"></b></a>

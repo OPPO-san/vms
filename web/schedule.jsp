@@ -24,6 +24,7 @@
                       <th>Maintenance Date</th>
                       <th>Maintenance Type</th>
                       <th>Service ID</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -33,21 +34,22 @@
                       <td>Broome Street</td>
                       <td>Broome Street</td>
                       <td>Broome Street</td>
+                      <td>
+                        <a href="add.php">
+			<img src="image/add.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+			</a>
+                          
+                        <a href="edit.php">
+			<img src="image/edit.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+			</a>
+                          
+                        <a href="delete.php">
+			<img src="image/delete.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+			</a>
+                      
+                      </td>
                     </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Debbie Dallas</td>
-                      <td>Houston Street</td>
-                      <td>Broome Street</td>
-                      <td>Broome Street</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>John Doe</td>
-                      <td>Madison Street</td>
-                      <td>Broome Street</td>
-                      <td>Broome Street</td>
-                    </tr>
+                   
                   </tbody>
                 </table>
               </div>

@@ -16,7 +16,29 @@
     <body>
         <div class="container">
            <div class="row">
-        <h1>Hello World!</h1>
+             <div class="table-responsive"> 
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Siri No.</th>
+                      <th>Plate Number</th>
+                      <th>Maintenance Date</th>
+                      <th>Maintenance Type</th>
+                      <th>Service ID</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Anna Awesome</td>
+                      <td>Broome Street</td>
+                      <td>Broome Street</td>
+                      <td>Broome Street</td>
+                    </tr>
+                   
+                  </tbody>
+                </table>
+              </div>
            </div>
         </div>
     </body>
