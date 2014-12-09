@@ -97,7 +97,7 @@ public class LoginVerify extends HttpServlet {
                 if(userlogin.getLevel()==1)
                     response.sendRedirect("admin.jsp");
                 else
-                    response.sendRedirect("index.jsp");
+                    response.sendRedirect("home.jsp");
             }
             else    
             {

@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<web-app metadata-complete="true" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-<<<<<<< HEAD
-        <servlet-name>connect</servlet-name>
-        <servlet-class>connect</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>connect</servlet-name>
-        <url-pattern>/connect</url-pattern>
-=======
         <servlet-name>LoginVerify</servlet-name>
         <servlet-class>mypackage.LoginVerify</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddUser</servlet-name>
+        <servlet-class>mypackage.AddUser</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginVerify</servlet-name>
         <url-pattern>/LoginVerify</url-pattern>
->>>>>>> 1ed855d6cb4f1ac78785615eae966564486078d4
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUser</servlet-name>
+        <url-pattern>/AddUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
