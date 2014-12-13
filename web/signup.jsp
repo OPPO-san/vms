@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
+<jsp:include page="Header.jsp"/>
 <html>
     <head>
         <title>Sign Up</title>

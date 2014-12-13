@@ -8,6 +8,10 @@
         <servlet-name>AddUser</servlet-name>
         <servlet-class>mypackage.AddUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutUser</servlet-name>
+        <servlet-class>mypackage.LogoutUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginVerify</servlet-name>
         <url-pattern>/LoginVerify</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>AddUser</servlet-name>
         <url-pattern>/AddUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutUser</servlet-name>
+        <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
