@@ -12,6 +12,14 @@
         <servlet-name>LogoutUser</servlet-name>
         <servlet-class>mypackage.LogoutUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditUser</servlet-name>
+        <servlet-class>mypackage.EditUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteUser</servlet-name>
+        <servlet-class>mypackage.DeleteUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginVerify</servlet-name>
         <url-pattern>/LoginVerify</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>LogoutUser</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditUser</servlet-name>
+        <url-pattern>/EditUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUser</servlet-name>
+        <url-pattern>/DeleteUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
