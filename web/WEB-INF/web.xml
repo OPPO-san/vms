@@ -20,6 +20,7 @@
         <servlet-name>DeleteUser</servlet-name>
         <servlet-class>mypackage.DeleteUser</servlet-class>
     </servlet>
+<<<<<<< HEAD
     <servlet>
         <servlet-name>User</servlet-name>
         <servlet-class>mypackage.User</servlet-class>
@@ -40,6 +41,8 @@
         <servlet-name>AddSparePart</servlet-name>
         <url-pattern>/AddPart</url-pattern>
     </servlet-mapping>
+=======
+>>>>>>> e334d6e4a156b900289120dded90e75ab43c4b18
     <servlet-mapping>
         <servlet-name>LoginVerify</servlet-name>
         <url-pattern>/LoginVerify</url-pattern>
