@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
@@ -11,15 +12,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="js/libs/twitter-bootstrap/css/bootstrap.css" type="text/css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Use of include tag in Jsp</title>
 </head>
 <body>
     <div class="container">
     <div class="row">
+    <jsp:useBean id="user" class="mypackage.User" scope="session"/>
     
     <div>
-        <img src="image/cover.png" >
+        <img src="cover.png" >
         <ul class="nav nav-tabs">
+        <% if(user.getLevel() == 1){ %>
+           <li><a href="admin.jsp"><span class="glyphicon glyphicon-home"></span> Home </a></li>
+           <li><a href="signup.jsp"><span class="glyphicon glyphicon-floppy-disk"></span> Register User </a></li>
+        <% } 
+        else{
+        %>
             <li><a href="home.jsp"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-plane"></span> Vehicle<b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -36,11 +43,11 @@
                     <li><a href="vehicleReport.jsp">Vehicle Report</a></li>
                 </ul>
             </li>
+        <% } %>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="logout.html"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+            <li><a href="./Logout"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
         </ul>
         </ul></br>
     </div>
     </div>
     </div>
-

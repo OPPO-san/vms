@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app metadata-complete="true" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>NewServlet</servlet-name>
-        <servlet-class>mypackage.NewServlet</servlet-class>
+        <servlet-name>LoginVerify</servlet-name>
+        <servlet-class>mypackage.LoginVerify</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddUser</servlet-name>
+        <servlet-class>mypackage.AddUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutUser</servlet-name>
+        <servlet-class>mypackage.LogoutUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditUser</servlet-name>
+        <servlet-class>mypackage.EditUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteUser</servlet-name>
+        <servlet-class>mypackage.DeleteUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>User</servlet-name>
@@ -23,6 +39,26 @@
     <servlet-mapping>
         <servlet-name>AddSparePart</servlet-name>
         <url-pattern>/AddPart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginVerify</servlet-name>
+        <url-pattern>/LoginVerify</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUser</servlet-name>
+        <url-pattern>/AddUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutUser</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditUser</servlet-name>
+        <url-pattern>/EditUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUser</servlet-name>
+        <url-pattern>/DeleteUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
