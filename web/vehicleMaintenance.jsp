@@ -3,56 +3,80 @@
     Created on : Dec 2, 2014, 9:01:11 AM
     Author     : Nurizzati
 --%>
+<%-- 
+    Document   : sparePart
+    Created on : Dec 2, 2014, 9:02:21 AM
+    Author     : Nurizzati
+--%>
+<%@ page import="java.sql.*" %>
+<%@page import="db.*" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <jsp:include page="Header.jsp" />
+         <%
+            final String serverName= "localhost";
+            final String databaseName= "vms";
+            String username = "root"; // Username/password required
+            String password = "izzati"; // for MYSQL SERVER.
+            DriverUtilities.loadDrivers();   
+            String driver = DriverUtilities.getDriver(DriverUtilities.MYSQL);
+            String url = DriverUtilities.makeURL(serverName,databaseName,DriverUtilities.MYSQL);
+            
+            Class.forName(driver);
+            Connection connection = DriverManager.getConnection(url, username, password);
+            
+            String query = "SELECT * FROM maintenance";
+            PreparedStatement selectUser = connection.prepareStatement(query);
+            ResultSet resultset = selectUser.executeQuery();
+        %>
 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>View Spare Part</title>
     </head>
     <body>
         <div class="container">
            <div class="row">
              <div class="table-responsive"> 
-                <table class="table table-striped table-bordered">
+                <a href="addMaintenance.jsp">
+	            <img src="image/add.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+	        </a> 
+                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
                       <th>Siri No.</th>
                       <th>Plat No.</th>
-                      <th>Service ID</th>
                       <th>Date Of Maintenance</th>
                       <th>Type Of Maintenance</th>
-                      <th>Vehicle Status</th>
+                      <th>Service  ID</th>
                       <th>Action</th>
+                     
                     </tr>
                   </thead>
                   <tbody>
-                   
+                    <% while(resultset.next()){ %>
                     <tr>
-                      <td>1</td>
-                      <td>John Doe</td>
-                      <td>Broome Street</td>
-                      <td>Broome Street</td>
-                      <td>Broome Street</td>
-                      <td>Broome Street</td>
+                      <td><%= resultset.getString("SIRI_NUM") %></td>
+                      <td><%= resultset.getString("PLATE_NUM") %></td>
+                      <td><%= resultset.getString("DATE_OF_MAINTENANCE") %></td>
+                      <td><%= resultset.getString("MAINTENANCE_TYPE") %></td>
+                      <td><%= resultset.getString("SERVICE_ID") %></td>
                       <td>
-                        <a href="add.php">
-			<img src="image/add.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
-			</a>
+                        
                           
-                        <a href="edit.php">
+                        <a href="editMaintenance.jsp?siri=<%= resultset.getString("SIRI_NUM") %>">
 			<img src="image/edit.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
 			</a>
                           
-                        <a href="delete.php">
+                        <a href="deleteMaintenance.jsp?siri=<%= resultset.getString("SIRI_NUM") %>">
 			<img src="image/delete.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
 			</a>
                       
                       </td>
                     </tr>
+                   <% } %>
                   </tbody>
                 </table>
               </div>
@@ -61,3 +85,9 @@
     </body>
     <jsp:include page="Footer.jsp" />
 </html>
+
+
+
+         
+                
+     

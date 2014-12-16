@@ -32,6 +32,10 @@
         <servlet-name>EditPart</servlet-name>
         <servlet-class>mypackage.EditSparePart</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addMaintenance</servlet-name>
+        <servlet-class>mypackage.AddMaintenance</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>User</servlet-name>
         <url-pattern>/User</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>EditPart</servlet-name>
         <url-pattern>/EditPart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addMaintenance</servlet-name>
+        <url-pattern>/addMaintenance</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
