@@ -11,9 +11,16 @@
         </div>
         
         <div>
-            <form action="" method="post">
+            <form action="./addVehicle" method="post">
                 <label>Plate Number: </label><input type="text" name="plateNum"><br>
                 <label>Driver: </label><input type="text" name="driver"><br>
+                <label>Type</label>
+                    <select name="type">
+                        <option>Car</option>
+                        <option>Motorcycle</option>
+                        <option>Lorry</option>
+                        <option>Bus</option>
+                    </select>
                 <dl>
                 <dt>Date of Release: 
                       <dd>Year: <input type="number" name="year" min="1980" max="2014"></dd> 
@@ -23,7 +30,7 @@
                  <label>Model: </label><input type="text" name="model"><br>
                  <label>Mileage: </label><input type="number" name="mileage" min="1"><br>
                  <label>Service Mileage: </label><input type="number" name="service_mileage" min="1"><br>
-                 <label>Vehicle Status: </label><textarea rows="5" cols="20" name="status"></textarea>
+                 <label>Vehicle Status: </label><textarea rows="5" cols="20" name="status"></textarea><br>
                  <input type="submit" value="Add">
             </form>
         </div>
