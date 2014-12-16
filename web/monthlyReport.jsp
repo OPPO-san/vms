@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : monthlyReport
     Created on : Dec 2, 2014, 9:02:44 AM
@@ -11,34 +12,37 @@
         <jsp:include page="Header.jsp" />
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Monthly Report</title>
     </head>
     <body>
         <div class="container">
            <div class="row">
-             <div class="table-responsive"> 
-                <table class="table table-striped table-bordered">
-                  <thead>
-                    <tr>
-                      <th>Siri No.</th>
-                      <th>Plate Number</th>
-                      <th>Maintenance Date</th>
-                      <th>Maintenance Type</th>
-                      <th>Service ID</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Anna Awesome</td>
-                      <td>Broome Street</td>
-                      <td>Broome Street</td>
-                      <td>Broome Street</td>
-                    </tr>
-                   
-                  </tbody>
-                </table>
-              </div>
+               <div class="page-header">
+                        <h2>Monthly Maintenance Report</h2>
+                </div>
+                <form class="form-horizontal" method="GET" action="./Report">
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Month</label>
+                          <div class="col-sm-5">
+                            <input type="text" name="month" class="form-control" placeholder="Enter Month">
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Year</label>
+                          <div class="col-sm-5">
+                            <input type="text" name="year" class="form-control" placeholder="Enter Year">
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Cost Report</button>
+                            <button type="submit" class="btn btn-success">Detail Report</button>
+                          </div>
+                          </div>
+                        </div>
+                    </form>
            </div>
         </div>
     </body>

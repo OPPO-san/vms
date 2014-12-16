@@ -8,19 +8,10 @@
             <web-module-libraries>
                 <library dirs="200">
                     <file>${file.reference.mysql-connector-java-5.1.22-bin.jar-1}</file>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> e334d6e4a156b900289120dded90e75ab43c4b18
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${libs.Java-EE-GlassFish-v3-Prelude.classpath}</file>
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> e334d6e4a156b900289120dded90e75ab43c4b18
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
