@@ -35,7 +35,10 @@
         <div class="container">
            <div class="row">
              <div class="table-responsive"> 
-                <table class="table table-striped table-bordered">
+                <a href="addSparePart.jsp">
+	            <img src="image/add.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+	        </a> 
+                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
                       <th>Spare Part ID</th>
@@ -43,7 +46,7 @@
                       <th>Quantity</th>
                       <th>Cost(per item)</th>
                       <th>Action</th>
-                      
+                     
                     </tr>
                   </thead>
                   <tbody>
@@ -54,9 +57,7 @@
                       <td><%= resultset.getString("COST") %></td>
                       <td><%= resultset.getString("QUANTITY") %></td>
                       <td>
-                        <a href="addSparePart.jsp">
-			<img src="image/add.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
-			</a>
+                        
                           
                         <a href="editSparePart.jsp?id=<%= resultset.getString("SPAREPART_ID") %>">
 			<img src="image/edit.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">

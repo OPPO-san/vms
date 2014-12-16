@@ -19,7 +19,7 @@
     <jsp:useBean id="user" class="mypackage.User" scope="session"/>
     
     <div>
-        <img src="cover.png" >
+        <img src="image/cover.png" >
         <ul class="nav nav-tabs">
         <% if(user.getLevel() == 1){ %>
            <li><a href="admin.jsp"><span class="glyphicon glyphicon-home"></span> Home </a></li>
@@ -32,7 +32,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="vehicleData.jsp">Manage Vehicle Data</a></li>
                     <li><a href="vehicleMaintenance.jsp">Manage Vehicle Maintenance</a></li>
-                    <li><a href="sparePart.jsp">Manage Spare Part</a></li>
+                    <li><a href="viewSparePart.jsp">Manage Spare Part</a></li>
                 </ul>
             </li>
             <li><a href="schedule.jsp"><span class="glyphicon glyphicon-list-alt"></span> Schedule</a></li>
