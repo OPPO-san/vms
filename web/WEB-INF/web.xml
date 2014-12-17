@@ -36,6 +36,10 @@
         <servlet-name>addMaintenance</servlet-name>
         <servlet-class>mypackage.AddMaintenance</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>calcTotal</servlet-name>
+        <servlet-class>mypackage.calculateTotal</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>User</servlet-name>
         <url-pattern>/User</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>addMaintenance</servlet-name>
         <url-pattern>/addMaintenance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>calcTotal</servlet-name>
+        <url-pattern>/calcTotal</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

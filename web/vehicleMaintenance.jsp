@@ -20,7 +20,7 @@
             final String serverName= "localhost";
             final String databaseName= "vms";
             String username = "root"; // Username/password required
-            String password = "izzati"; // for MYSQL SERVER.
+            String password = ""; // for MYSQL SERVER.
             DriverUtilities.loadDrivers();   
             String driver = DriverUtilities.getDriver(DriverUtilities.MYSQL);
             String url = DriverUtilities.makeURL(serverName,databaseName,DriverUtilities.MYSQL);
@@ -31,6 +31,7 @@
             String query = "SELECT * FROM maintenance";
             PreparedStatement selectUser = connection.prepareStatement(query);
             ResultSet resultset = selectUser.executeQuery();
+            
         %>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -43,13 +44,15 @@
                 <a href="addMaintenance.jsp">
 	            <img src="image/add.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
 	        </a> 
-                 <table class="table table-striped table-bordered">
+                 <div class="panel-body">
+                 <table class="table">
                   <thead>
                     <tr>
                       <th>Siri No.</th>
                       <th>Plat No.</th>
                       <th>Date Of Maintenance</th>
                       <th>Type Of Maintenance</th>
+                      <th>Millege</th>
                       <th>Service  ID</th>
                       <th>Action</th>
                      
@@ -62,15 +65,16 @@
                       <td><%= resultset.getString("PLATE_NUM") %></td>
                       <td><%= resultset.getString("DATE_OF_MAINTENANCE") %></td>
                       <td><%= resultset.getString("MAINTENANCE_TYPE") %></td>
+                      <td></td>
                       <td><%= resultset.getString("SERVICE_ID") %></td>
                       <td>
                         
                           
-                        <a href="editMaintenance.jsp?siri=<%= resultset.getString("SIRI_NUM") %>">
+                        <a href="editMaintenance.jsp?siri_no=<%= resultset.getString("SIRI_NUM") %>">
 			<img src="image/edit.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
 			</a>
                           
-                        <a href="deleteMaintenance.jsp?siri=<%= resultset.getString("SIRI_NUM") %>">
+                        <a href="deleteMaintenance.jsp?siri_no=<%= resultset.getString("SIRI_NUM") %>">
 			<img src="image/delete.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
 			</a>
                       
@@ -79,6 +83,7 @@
                    <% } %>
                   </tbody>
                 </table>
+                 </div>
               </div>
            </div>
         </div>

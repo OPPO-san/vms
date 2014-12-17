@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,13 +22,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.RequestDispatcher;
-
-
 /**
  *
- * @author MPK05
+ * @author Nurizzati
  */
-public class EditUser extends HttpServlet {
+
+public class calculateTotal extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -55,17 +53,18 @@ public class EditUser extends HttpServlet {
             String driver = DriverUtilities.getDriver(DriverUtilities.MYSQL);
             String url = DriverUtilities.makeURL(serverName,databaseName,DriverUtilities.MYSQL);
             
-            String user = null;
-            String pwd = null;
-            String name;
-            String level;
-            String id;
+            String siri_no;
+            String plat_no;
+            String date;
+            String type;
+            String service_id;
             
-            id = request.getParameter("id");
-            user = request.getParameter("username");
-            pwd = request.getParameter("password");
-            name = request.getParameter("name");
-            level = request.getParameter("level");
+            siri_no = request.getParameter("siri_no");
+            plat_no = request.getParameter("plat_no");
+            date = request.getParameter("date");
+            type = request.getParameter("type");
+            service_id = request.getParameter("service_id");
+            
                
             try {
         // Load database driver if it's not already loaded.
@@ -76,25 +75,25 @@ public class EditUser extends HttpServlet {
         // Look up info about the database as a whole.
 
         //USE STATEMENT
-  /*      String query = "SELECT * FROM user WHERE username='" + userid +"'";
+  /*    String query = "SELECT * FROM user WHERE username='" + userid +"'";
         query = query + "AND password='" + userpass +"'";
         // Send query to database and store results.
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
   */ 
         //USE PREPAREDSTATEMENT
-        String query2 = "UPDATE users SET staffID=?, password=?, fullName=?,userLevel=? WHERE staffID = ?";
+        String query2 = "INSERT INTO maintenance (SIRI_NUM,PLATE_NUM,DATE_OF_MAINTENANCE,MAINTENANCE_TYPE,SERVICE_ID) VALUES (?,?,?,?,?)";
         PreparedStatement insertUser = connection.prepareStatement(query2);
-        insertUser.setString(1,user);
-        insertUser.setString(2,pwd);
-        insertUser.setString(3,name);
-        insertUser.setString(4,level);
-        insertUser.setString(5,id);
+        insertUser.setString(1,siri_no);
+        insertUser.setString(2,plat_no);
+        insertUser.setString(3,date);
+        insertUser.setString(4,type);
+        insertUser.setString(5,null);
         insertUser.executeUpdate();
 
-        System.out.println("User has been updated in database");
+        System.out.println("New Maintenance Record has been added in database");
 
-        response.sendRedirect("admin.jsp");
+        response.sendRedirect("addMaintenance2.jsp");
   // Print results.
         connection.close();
       } catch(ClassNotFoundException cnfe) {

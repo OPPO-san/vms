@@ -48,5 +48,6 @@
                 </div>
             </div>            
         </div>
+        <a href="viewSparePart.jsp"></a>
     </body>
 </html>

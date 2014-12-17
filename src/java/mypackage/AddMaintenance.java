@@ -48,7 +48,7 @@ public class AddMaintenance extends HttpServlet {
             final String serverName= "localhost";
             final String databaseName= "vms";
             String username = "root"; // Username/password required
-            String password = "izzati"; // for MYSQL SERVER.
+            String password = ""; // for MYSQL SERVER.
             DriverUtilities.loadDrivers();   
             String driver = DriverUtilities.getDriver(DriverUtilities.MYSQL);
             String url = DriverUtilities.makeURL(serverName,databaseName,DriverUtilities.MYSQL);
@@ -75,7 +75,7 @@ public class AddMaintenance extends HttpServlet {
         // Look up info about the database as a whole.
 
         //USE STATEMENT
-  /*      String query = "SELECT * FROM user WHERE username='" + userid +"'";
+  /*    String query = "SELECT * FROM user WHERE username='" + userid +"'";
         query = query + "AND password='" + userpass +"'";
         // Send query to database and store results.
         Statement statement = connection.createStatement();
@@ -88,12 +88,12 @@ public class AddMaintenance extends HttpServlet {
         insertUser.setString(2,plat_no);
         insertUser.setString(3,date);
         insertUser.setString(4,type);
-        insertUser.setString(5,service_id);
+        insertUser.setString(5,null);
         insertUser.executeUpdate();
 
         System.out.println("New Maintenance Record has been added in database");
 
-        response.sendRedirect("vehicleMaintenance.jsp");
+        response.sendRedirect("addMaintenance2.jsp");
   // Print results.
         connection.close();
       } catch(ClassNotFoundException cnfe) {

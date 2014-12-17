@@ -15,10 +15,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <%
+                    int id = Integer.parseInt(request.getParameter("siri_no"));
                     final String serverName= "localhost";
                     final String databaseName= "vms";
                     String username = "root"; // Username/password required
-                    String password = ""; // for MYSQL SERVER.
+                    String password = "izzati"; // for MYSQL SERVER.
                     DriverUtilities.loadDrivers();   
                     String driver = DriverUtilities.getDriver(DriverUtilities.MYSQL);
                     String url = DriverUtilities.makeURL(serverName,databaseName,DriverUtilities.MYSQL);
@@ -29,14 +30,14 @@
                     String query = "SELECT PART_NAME FROM spare_part";
                     PreparedStatement selectUser = connection.prepareStatement(query);
                     ResultSet resultset = selectUser.executeQuery();
-                    
-                    String query1 = "SELECT SERVICE_ID FROM service";
-                    PreparedStatement selectUser1 = connection.prepareStatement(query1);
-                    ResultSet resultset1 = selectUser1.executeQuery();
-                    
+                   
                     String query2 = "SELECT PLATE_NUM FROM vehicle";
                     PreparedStatement selectUser2 = connection.prepareStatement(query2);
                     ResultSet resultset2 = selectUser2.executeQuery();
+                    
+                    String query3 = "SELECT * FROM maintenance WHERE SIRI_NUM=?";
+                    PreparedStatement selectUser3 = connection.prepareStatement(query3);
+                    ResultSet resultset3 = selectUser3.executeQuery();
                     
         %>
                     
@@ -50,36 +51,36 @@
             <div class="panel panel-primary">
                     <div class="panel-heading">Add Maintenance Record</div>
             <div class="panel-body">
-            <form action="./addMaintenance" method="post">
-                <label>Siri No.   : </label><input type="text" name="siri_no"><br><br>
+            <form action="./editMaintenance" method="post">
+                <label>Siri No.   : </label><input type="text" name="siri_no" value="<%= resultset3.getString("SIRI_NUM") %>"><br><br>
                 <label>Plate No. : </label>
-                <select class="form-group" name="plat_no" >
+                <select class="form-group" name="plat_no" value="<%= resultset3.getString("PLATE_NUM") %>">
 		<option value="f0">---Choose Plate No---</option>
 		<% while(resultset2.next()){ %>
                 <option value="<%= resultset2.getString("PLATE_NUM") %>"><%= resultset2.getString("PLATE_NUM") %></option>
 		<%}%>
 		</select>
                 <br/>
-                <label>Date Of Maintenance : </label><input type="date" name="date"><br><br>
+                <label>Date Of Maintenance : </label><input type="date" name="date" value="<%= resultset3.getString("DATE_OF_MAINTENANCE") %>"><br><br>
                 <label>Type Of Maintenance  : </label><br>
                 <div class="radio-inline">
                 <div>
-                    <input type="radio" name="type" value="Battery Maintenance">Battery Maintenance
+                    <input type="radio" name="type" value="battery">Battery Maintenance
                 </div>
                 <div>
-                    <input type="radio" name="type" value="Brake Maintenance">Brake Maintenance
+                    <input type="radio" name="type" value="brake">Brake Maintenance
                 </div>
                 <div>
-                    <input type="radio" name="type" value="Tune Up">Tune Up
+                    <input type="radio" name="type" value="tuneUp">Tune Up
                 </div>
                 <div>
-                    <input type="radio" name="type" value="Engine Maintenance">Engine Maintenance
+                    <input type="radio" name="type" value="engine">Engine Maintenance
                 </div>
                 <div>
-                    <input type="radio" name="type" value="Car Wax">Car Wax
+                    <input type="radio" name="type" value="carWax">Car Wax
                 </div>
                 <div>
-                    <input type="radio" name="type" value="Tire Maintenance">Tire Maintenance
+                    <input type="radio" name="type" value="tire">Tire Maintenance
                 </div>
                 </div>
                 <br><br>
