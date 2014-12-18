@@ -1,3 +1,4 @@
+<jsp:include page="Header.jsp" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,8 @@
                 +" FROM VEHICLE JOIN VEHICLE_TYPE ON VEHICLE.TYPE_ID=VEHICLE_TYPE.TYPE_ID"; %>
         
         <%@ page import="mypackage.*, java.sql.*" %>
-        <table border="1">
+        <center>
+        <table class="table">
         <tr>
             <th>Plate Number</th>
             <th>Driver</th>
@@ -35,6 +37,11 @@
                     </form>
                </td>
         <%}%>
-        </table>        
+        </table>
+        </center>
+    <div>
+        <br>
+        <jsp:include page="Footer.jsp" />
+    </div>
     </body>
 </html>
