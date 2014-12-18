@@ -97,10 +97,14 @@ public class VehicleReport extends HttpServlet {
       // Print results.
       out.println("<TABLE class=\"table table-hover\">");
       out.println("<THEAD><th>No<th>Plat Number<th>Instructor<th>Year</th></THEAD>");
-      out.println("<TBODY><TR>");
+      out.println("<TBODY>");
+      while(resultSet.next()){
+      out.println("<TR>");
       out.println("<TD><TD>"+ resultSet.getString("PLATE_NUM") + "<TD>" + resultSet.getString("DRIVER")
                     + "<TD>" + resultSet.getString("DATE_OF_RELEASE"));
-      out.println("</TD></TR></TBODY></TABLE>");
+      out.println("</TD></TR>");
+      }
+      out.println("</TBODY></TABLE>");
       connection.close();
     } catch(ClassNotFoundException cnfe) {
       System.err.println("Error loading driver: " + cnfe);

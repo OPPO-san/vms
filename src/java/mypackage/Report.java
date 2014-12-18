@@ -75,7 +75,7 @@ public class Report extends HttpServlet {
     String url = DriverUtilities.makeURL(serverName,databaseName,DriverUtilities.MYSQL);
 //*/   
     String month = null;
-    String year;
+    String year = null;
     
     if(request.getParameter("month")!=null)
         month = request.getParameter("month");
@@ -99,19 +99,24 @@ public class Report extends HttpServlet {
      
       Statement statement = connection.createStatement();
 
-      String query = "SELECT * FROM maintenance WHERE MONTH(DATE_OF_MAINTENANCE)=? OR YEAR(DATE_OF_MAINTENANCE)=?";
+      String query = "SELECT * FROM maintenance WHERE MONTH(DATE_OF_MAINTENANCE)= 12 AND YEAR(DATE_OF_MAINTENANCE)=2014";
     // Send query to database and store results.
       PreparedStatement selectInfo = connection.prepareStatement(query);
       selectInfo.setString(1,month);
       selectInfo.setString(2,year);
       ResultSet resultSet = selectInfo.executeQuery();
+      
+      System.out.println("Successful display result");
       // Print results.
       out.println("<TABLE class=\"table table-hover\">");
-      out.println("<THEAD><th>No<th>Date<th>Current Mileage<th>Service Mileage<th>Description<th>No Bill<th>Expense</th></THEAD>");
-      out.println("<TBODY><TR>");
-      out.println("<TD><TD>"+ resultSet.getString("DATE_OF_MAINTENANCE") + "<TD>" + resultSet.getString("MILEAGE")
-                    + "<TD>" + resultSet.getString("SERVICE_MILEAGE") + "<TD><TD>");
-      out.println("</TD></TR></TBODY></TABLE>");
+      out.println("<THEAD><th>No<th>Date<th><th>Description</th></THEAD>");
+      out.println("<TBODY>");
+      while(resultSet.next()){
+        out.println("<TR>");
+        out.println("<TD><TD>"+ resultSet.getString("DATE_OF_MAINTENANCE") + "<TD>"+ resultSet.getString("MAINTENANCE_TYPE") );
+        out.println("</TD></TR>");
+      }
+      out.println("</TBODY></TABLE>");
       connection.close();
     } catch(ClassNotFoundException cnfe) {
       System.err.println("Error loading driver: " + cnfe);

@@ -44,6 +44,14 @@
         <servlet-name>VehicleReport</servlet-name>
         <servlet-class>mypackage.VehicleReport</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CostReport</servlet-name>
+        <servlet-class>mypackage.CostReport</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Report</servlet-name>
+        <servlet-class>mypackage.Report</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>User</servlet-name>
         <url-pattern>/User</url-pattern>
@@ -87,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>VehicleReport</servlet-name>
         <url-pattern>/VehicleReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CostReport</servlet-name>
+        <url-pattern>/CostReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Report</servlet-name>
+        <url-pattern>/Report</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

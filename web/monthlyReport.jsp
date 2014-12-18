@@ -37,12 +37,12 @@
                         
                         <div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-success">Cost Report</button>
+                            <button type="submit" href="./CostReport" class="btn btn-success">Cost Report</button>
                             <button type="submit" class="btn btn-success">Detail Report</button>
                           </div>
                           </div>
                         </div>
-                    </form>
+                </form>
            </div>
         </div>
     </body>
