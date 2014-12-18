@@ -107,10 +107,10 @@ public class Report extends HttpServlet {
       ResultSet resultSet = selectInfo.executeQuery();
       // Print results.
       out.println("<TABLE class=\"table table-hover\">");
-      out.println("<THEAD><th>No<th>Plat Number<th>Instructor<th>Year</th></THEAD>");
+      out.println("<THEAD><th>No<th>Date<th>Current Mileage<th>Service Mileage<th>Description<th>No Bill<th>Expense</th></THEAD>");
       out.println("<TBODY><TR>");
-      out.println("<TD><TD>"+ resultSet.getString("PLATE_NUM") + "<TD>" + resultSet.getString("DRIVER")
-                    + "<TD>" + resultSet.getString("DATE_OF_RELEASE"));
+      out.println("<TD><TD>"+ resultSet.getString("DATE_OF_MAINTENANCE") + "<TD>" + resultSet.getString("MILEAGE")
+                    + "<TD>" + resultSet.getString("SERVICE_MILEAGE") + "<TD><TD>");
       out.println("</TD></TR></TBODY></TABLE>");
       connection.close();
     } catch(ClassNotFoundException cnfe) {

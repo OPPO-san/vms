@@ -4,7 +4,7 @@
     Author     : Ahmad Tahfiz
 --%>
 <%@ page import="java.sql.*" %>
-<%@page import="db.*" %>
+<%@ page import="db.*" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="Header.jsp"/>

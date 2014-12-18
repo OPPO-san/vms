@@ -6,24 +6,27 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<jsp:include page="Header.jsp" />
 <html>
     <head>
-        <jsp:include page="Header.jsp" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>View Schedule</title>
     </head>
     <body>
         <div class="container">
            <div class="row">
+            <div class="page-header">
+                 <h2>View Schedule</h2>
+            </div>
              <div class="table-responsive"> 
                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
-                      <th>Siri No.</th>
                       <th>Plate Number</th>
-                      <th>Maintenance Date</th>
-                      <th>Maintenance Type</th>
-                      <th>Service ID</th>
+                      <th>Last Maintenance Date</th>
+                      <th>Last Service Mileage</th>
+                      <th>Next Service Mileage</th>
+                      <th>Reference Number</th>
                       <th>Action</th>
                     </tr>
                   </thead>
