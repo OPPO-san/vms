@@ -40,7 +40,7 @@
             <div class="panel panel-primary">
                     <div class="panel-heading">Add Maintenance Record</div>
             <div class="panel-body">
-            <form action="./calcTotal" method="post">
+                <form action="./calculateTotal?siri_num=<%= request.getParameter("siri_no") %>" method="post">
                 <label>List Of Spare Part  : </label><br>
                 <div class="radio-inline">
                
@@ -55,19 +55,8 @@
             </div>
             </div>
            </div>
-        </div>
-        <% 
-        if(request.getParameterValues("sparePart")!= null){
-            String cost[] = request.getParameterValues("sparePart");
-            if(cost != null && cost.length != 0)
-                {}
-            for(int i = 0;i < cost.length; i++){
-                out.println(cost[i]);
-            }
-        }
-        %>
-        
-            
+        </div>  
+        </div>  
 </body>
     <jsp:include page="Footer.jsp" />
 </html>
