@@ -16,7 +16,7 @@
             final String serverName= "localhost";
             final String databaseName= "vms";
             String username = "root"; // Username/password required
-            String password = "izzati"; // for MYSQL SERVER.
+            String password = ""; // for MYSQL SERVER.
             DriverUtilities.loadDrivers();   
             String driver = DriverUtilities.getDriver(DriverUtilities.MYSQL);
             String url = DriverUtilities.makeURL(serverName,databaseName,DriverUtilities.MYSQL);
@@ -40,7 +40,7 @@
                  <div class="panel panel-primary">
                     <div class="panel-heading">Edit Spare Part Data</div>
                     <div class="panel-body">
-                      <form action="./EditPart" method="post">
+                      <form action="./EditSparePart" method="post">
                         <% while(resultset.next()){ %>
                             <input type="hidden" value="<%= resultset.getString("SPAREPART_ID") %>"name="id">
                             <label>Spare Part ID   : </label><%= resultset.getString("SPAREPART_ID") %><br><br>
