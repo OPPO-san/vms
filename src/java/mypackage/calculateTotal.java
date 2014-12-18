@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mypackage;
 import db.*;
 
@@ -16,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.*;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,20 +25,10 @@ import javax.servlet.RequestDispatcher;
 
 public class calculateTotal extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
                         
                 // APPROACH 3 : USE UTILITIES Class
             final String serverName= "localhost";
@@ -52,48 +38,45 @@ public class calculateTotal extends HttpServlet {
             DriverUtilities.loadDrivers();   
             String driver = DriverUtilities.getDriver(DriverUtilities.MYSQL);
             String url = DriverUtilities.makeURL(serverName,databaseName,DriverUtilities.MYSQL);
-            
-            String siri_no;
-            String plat_no;
-            String date;
-            String type;
-            String service_id;
-            
-            siri_no = request.getParameter("siri_no");
-            plat_no = request.getParameter("plat_no");
-            date = request.getParameter("date");
-            type = request.getParameter("type");
-            service_id = request.getParameter("service_id");
-            
-               
-            try {
-        // Load database driver if it's not already loaded.
-        Class.forName(driver);
-          // Establish network connection to database.
-        Connection connection =
-          DriverManager.getConnection(url, username, password);
-        // Look up info about the database as a whole.
 
-        //USE STATEMENT
-  /*    String query = "SELECT * FROM user WHERE username='" + userid +"'";
-        query = query + "AND password='" + userpass +"'";
-        // Send query to database and store results.
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(query);
-  */ 
-        //USE PREPAREDSTATEMENT
-        String query2 = "INSERT INTO maintenance (SIRI_NUM,PLATE_NUM,DATE_OF_MAINTENANCE,MAINTENANCE_TYPE,SERVICE_ID) VALUES (?,?,?,?,?)";
-        PreparedStatement insertUser = connection.prepareStatement(query2);
-        insertUser.setString(1,siri_no);
-        insertUser.setString(2,plat_no);
-        insertUser.setString(3,date);
-        insertUser.setString(4,type);
-        insertUser.setString(5,null);
-        insertUser.executeUpdate();
+            String []spare_part = request.getParameterValues("sparePart");
+            String siri_num = request.getParameter("siri_num");
+            Float cost = new Float(0.0);
+            
+            try {
+            // Load database driver if it's not already loaded.
+            Class.forName(driver);
+              // Establish network connection to database.
+            Connection connection =
+              DriverManager.getConnection(url, username, password);
+            // Look up info about the database as a whole.
+            
+            for(int i=0;i<spare_part.length;i++)
+            {
+                String sql = "SELECT COST FROM SPARE_PART WHERE SPAREPART_ID='"+spare_part[i]+"'";
+                PreparedStatement pstmt = connection.prepareStatement(sql);
+                ResultSet rs = pstmt.executeQuery();
+                rs.next();
+                cost += rs.getFloat(1);
+            }
+
+            for(int i=0;i<spare_part.length;i++)
+            {
+                String sql = "UPDATE SPARE_PART SET QUANTITY=QUANTITY-1 WHERE SPAREPART_ID='"+spare_part[i]+"'";
+                PreparedStatement pstmt = connection.prepareStatement(sql);
+                pstmt.executeUpdate();             
+            }
+                        
+        String query1 = "INSERT INTO SERVICE (SERVICE_COST, SIRI_NUM, PAYMENT) VALUES (?,?,?)";
+        PreparedStatement insertService = connection.prepareStatement(query1);
+        insertService.setFloat(1,cost);
+        insertService.setString(2, siri_num);
+        insertService.setString(3, "null");
+        insertService.executeUpdate();
 
         System.out.println("New Maintenance Record has been added in database");
 
-        response.sendRedirect("addMaintenance2.jsp");
+        response.sendRedirect("vehicleMaintenance.jsp");
   // Print results.
         connection.close();
       } catch(ClassNotFoundException cnfe) {
@@ -105,43 +88,4 @@ public class calculateTotal extends HttpServlet {
       }
           }
       }
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
