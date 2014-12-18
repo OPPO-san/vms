@@ -50,7 +50,7 @@
             <div class="panel panel-primary">
                     <div class="panel-heading">Add Maintenance Record</div>
             <div class="panel-body">
-            <form action="./addMaintenance" method="post">
+            <form action="./AddMaintenance" method="post">
                 <label>Siri No.   : </label><input type="text" name="siri_no"><br><br>
                 <label>Plate No. : </label>
                 <select class="form-group" name="plat_no" >
@@ -91,7 +91,7 @@
             </div>
            </div>
         </div>
-            
+        </div>    
     </body>
     <jsp:include page="Footer.jsp" />
 </html>
