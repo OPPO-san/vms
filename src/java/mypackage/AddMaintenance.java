@@ -57,15 +57,12 @@ public class AddMaintenance extends HttpServlet {
             String plat_no;
             String date;
             String type;
-            String service_id;
             
             siri_no = request.getParameter("siri_no");
             plat_no = request.getParameter("plat_no");
             date = request.getParameter("date");
             type = request.getParameter("type");
-            service_id = request.getParameter("service_id");
-            
-               
+              
             try {
         // Load database driver if it's not already loaded.
         Class.forName(driver);
@@ -82,18 +79,18 @@ public class AddMaintenance extends HttpServlet {
         ResultSet resultSet = statement.executeQuery(query);
   */ 
         //USE PREPAREDSTATEMENT
-        String query2 = "INSERT INTO maintenance (SIRI_NUM,PLATE_NUM,DATE_OF_MAINTENANCE,MAINTENANCE_TYPE,SERVICE_ID) VALUES (?,?,?,?,?)";
+        String query2 = "INSERT INTO maintenance (SIRI_NUM,PLATE_NUM,DATE_OF_MAINTENANCE,MAINTENANCE_TYPE) VALUES (?,?,?,?)";
         PreparedStatement insertUser = connection.prepareStatement(query2);
         insertUser.setString(1,siri_no);
         insertUser.setString(2,plat_no);
         insertUser.setString(3,date);
         insertUser.setString(4,type);
-        insertUser.setString(5,null);
         insertUser.executeUpdate();
 
         System.out.println("New Maintenance Record has been added in database");
 
-        response.sendRedirect("addMaintenance2.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("addMaintenance2.jsp");
+        dispatcher.forward(request, response);
   // Print results.
         connection.close();
       } catch(ClassNotFoundException cnfe) {

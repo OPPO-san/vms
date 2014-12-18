@@ -28,7 +28,10 @@
             Class.forName(driver);
             Connection connection = DriverManager.getConnection(url, username, password);
             
-            String query = "SELECT * FROM maintenance";
+            String query = "SELECT MAINTENANCE.SIRI_NUM, MAINTENANCE.PLATE_NUM, DATE_OF_MAINTENANCE, "
+                    + "MAINTENANCE_TYPE, VEHICLE.MILEAGE, SERVICE.SERVICE_ID FROM maintenance JOIN VEHICLE ON "
+                    + "VEHICLE.PLATE_NUM=MAINTENANCE.PLATE_NUM "
+                    + "JOIN SERVICE ON MAINTENANCE.SIRI_NUM=SERVICE.SIRI_NUM";
             PreparedStatement selectUser = connection.prepareStatement(query);
             ResultSet resultset = selectUser.executeQuery();
             
@@ -52,7 +55,7 @@
                       <th>Plat No.</th>
                       <th>Date Of Maintenance</th>
                       <th>Type Of Maintenance</th>
-                      <th>Millege</th>
+                      <th>Mileage</th>
                       <th>Service  ID</th>
                       <th>Action</th>
                      
@@ -65,7 +68,7 @@
                       <td><%= resultset.getString("PLATE_NUM") %></td>
                       <td><%= resultset.getString("DATE_OF_MAINTENANCE") %></td>
                       <td><%= resultset.getString("MAINTENANCE_TYPE") %></td>
-                      <td></td>
+                      <td><%= resultset.getString("MILEAGE") %></td>
                       <td><%= resultset.getString("SERVICE_ID") %></td>
                       <td>
                         

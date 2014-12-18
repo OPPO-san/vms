@@ -40,7 +40,7 @@
                  <div class="panel panel-primary">
                     <div class="panel-heading">Edit Spare Part Data</div>
                     <div class="panel-body">
-                      <form action="./EditPart" method="post">
+                      <form action="./EditSparePart" method="post">
                         <% while(resultset.next()){ %>
                             <input type="hidden" value="<%= resultset.getString("SPAREPART_ID") %>"name="id">
                             <label>Spare Part ID   : </label><%= resultset.getString("SPAREPART_ID") %><br><br>
