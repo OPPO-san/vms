@@ -34,6 +34,7 @@
                     <li><a href="display_vehicle.jsp">Manage Vehicle Data</a></li>
                     <li><a href="vehicleMaintenance.jsp">Manage Vehicle Maintenance</a></li>
                     <li><a href="viewSparePart.jsp">Manage Spare Part</a></li>
+                    <li><a href="display_service.jsp">View Service & Payment</a></li>
                 </ul>
             </li>
             <li><a href="display_maintenance.jsp"><span class="glyphicon glyphicon-list-alt"></span> Schedule</a></li>
