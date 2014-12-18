@@ -20,11 +20,19 @@ public class updateMileage extends HttpServlet {
             
             String plate_num = request.getParameter("plate_num");
             String service_mileage = request.getParameter("service_mileage");
+            String old_service_mileage = request.getParameter("old_service_mileage");
+            String sql=null;
             
-            String sql= "UPDATE VEHICLE "
+            if(old_service_mileage.equals("0"))
+                 sql= "UPDATE VEHICLE "
+                    + "SET SERVICE_MILEAGE='"+service_mileage+"' "
+                    + "WHERE PLATE_NUM='"+plate_num+"'";
+            else
+                 sql= "UPDATE VEHICLE "
                     + "SET MILEAGE=SERVICE_MILEAGE, "
                     + "SERVICE_MILEAGE='"+service_mileage+"' "
                     + "WHERE PLATE_NUM='"+plate_num+"'";
+            
             String message =null;
         
             try
