@@ -30,8 +30,9 @@
             <li><a href="home.jsp"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-plane"></span> Vehicle<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="vehicleData.jsp">Manage Vehicle Data</a></li>
-                    <li><a href="vehicleMaintenance.jsp">Manage Vehicle Maintenance</a></li>
+                    <li><a href="addVehicle.jsp">Add New Vehicle</a></li>
+                    <li><a href="display_vehicle.jsp">Manage Vehicle Data</a></li>
+                    <li><a href="display_maintenance.jsp">Manage Vehicle Maintenance</a></li>
                     <li><a href="viewSparePart.jsp">Manage Spare Part</a></li>
                 </ul>
             </li>
