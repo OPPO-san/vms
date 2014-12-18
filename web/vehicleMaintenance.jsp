@@ -28,10 +28,10 @@
             Class.forName(driver);
             Connection connection = DriverManager.getConnection(url, username, password);
             
-            String query = "SELECT SIRI_NUM, MAINTENANCE.PLATE_NUM, DATE_OF_MAINTENANCE, "
+            String query = "SELECT MAINTENANCE.SIRI_NUM, MAINTENANCE.PLATE_NUM, DATE_OF_MAINTENANCE, "
                     + "MAINTENANCE_TYPE, VEHICLE.MILEAGE, SERVICE.SERVICE_ID FROM maintenance JOIN VEHICLE ON "
                     + "VEHICLE.PLATE_NUM=MAINTENANCE.PLATE_NUM "
-                    + "JOIN SERVICE ON MAINTENANCE.SERVICE_ID=SERVICE.SERVICE_ID";
+                    + "JOIN SERVICE ON MAINTENANCE.SIRI_NUM=SERVICE.SIRI_NUM";
             PreparedStatement selectUser = connection.prepareStatement(query);
             ResultSet resultset = selectUser.executeQuery();
             
