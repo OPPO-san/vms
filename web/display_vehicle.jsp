@@ -32,8 +32,12 @@
                 <td><%= rs.getString(i)%></td>
                 <%}%>
                 <td><form>
-                    <button type="submit" formaction="./delete?plate_num=<%=rs.getString(1)%>" formmethod="post">Delete</button>
-                    <button type="submit" formaction="./updateVehicle.jsp?plate_num=<%=rs.getString(1)%>" formmethod="post">Change</button>
+                    <a href="./delete?plate_num=<%=rs.getString(1)%>">
+                        <img src="image/delete.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+                    </a>
+                    <a href="./updateVehicle.jsp?plate_num=<%=rs.getString(1)%>">
+                        <img src="image/edit.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+                    </a>
                     </form>
                </td>
         <%}%>
