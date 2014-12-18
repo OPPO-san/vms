@@ -29,20 +29,13 @@ public class addVehicle extends HttpServlet {
         String mileage = request.getParameter("mileage");
         String service_mileage = request.getParameter("service_mileage");
         String vehicle_status = request.getParameter("status");
-        
-        Integer year = new Integer(request.getParameter("year"));
-        Integer month = new Integer(request.getParameter("month"));
-        Integer date = new Integer(request.getParameter("date"));
-        
-        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
-        Date now = new Date(year-1900, month-1, date);
-        String new_date = DATE_FORMAT.format(now);
+        String date = request.getParameter("date");
         
         String sql = "INSERT INTO VEHICLE(PLATE_NUM, DRIVER, DATE_OF_RELEASE, TYPE_ID, MODEL, MILEAGE, SERVICE_MILEAGE, VEC_STATUS)"
                 + "VALUES('"
                 + plateNum+"','"
                 + driver+"','"
-                + new_date+"',"
+                + date+"',"
                 + "(SELECT TYPE_ID FROM VEHICLE_TYPE WHERE VEC_TYPE='"+type+"'),'"
                 + model+"','"
                 + mileage+"','"
