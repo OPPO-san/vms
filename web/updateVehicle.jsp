@@ -1,3 +1,4 @@
+<jsp:include page="Header.jsp" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,7 @@
         <% ResultSet rs=display_vehicle.DBConnection(sql); 
             rs.next();
         %> 
-         <div>
+         <div class="panel-body">
              <form action="./updateVehicle?plate_num=<%=request.getParameter("plate_num")%>" method="post">
                 <p>Plate Number: <%=rs.getString(1)%></p><br>
                 <label>Driver: </label><input type="text" name="driver" value="<%=rs.getString(2)%>"><br>
@@ -47,6 +48,10 @@
                  <label>Vehicle Status: </label><textarea rows="5" cols="20" name="status"><%=rs.getString(8)%></textarea><br>
                  <input type="submit" value="Update">
             </form>     
+         </div>
+         <div>
+             <br>
+            <jsp:include page="Footer.jsp" />
          </div>
     </body>
 </html>
