@@ -33,25 +33,27 @@
         %>
         <div class="container">
             <div class="row">
-                <% while(resultSet.next()){
-                        int i = 1;
-                %>
+                
                 <table class="table table-bordered">
                     <thead>
                         <th>No<th>Plat Number<th>Instructor<th>Year</th></th>
                     </thead>
                     <tbody>
+                        <%
+                         int i = 1;
+                         while(resultSet.next()){
+                        %>
                         <tr>
                             <td><%= i++ %></td>
                             <td><%= resultSet.getString("PLATE_NUM")%></td>
                             <td><%= resultSet.getString("DRIVER") %></td>
                             <td><%= resultSet.getString("DATE_OF_RELEASE") %></td>
                         </tr>
+                        <% 
+                          }
+                        %>
                     </tbody>
                 </table>
-                <% 
-                  }
-                %>
             </div>
         </div>
     </body>
