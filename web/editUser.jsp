@@ -26,7 +26,7 @@
             final String serverName= "localhost";
             final String databaseName= "vms";
             String username = "root"; // Username/password required
-            String password = "izzati"; // for MYSQL SERVER.
+            String password = ""; // for MYSQL SERVER.
             DriverUtilities.loadDrivers();   
             String driver = DriverUtilities.getDriver(DriverUtilities.MYSQL);
             String url = DriverUtilities.makeURL(serverName,databaseName,DriverUtilities.MYSQL);

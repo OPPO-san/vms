@@ -29,7 +29,6 @@
         <servlet-class>mypackage.AddSparePart</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>EditPart</servlet-name>
         <servlet-class>mypackage.EditSparePart</servlet-class>
     </servlet>
@@ -38,16 +37,16 @@
         <servlet-class>mypackage.AddMaintenance</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>calcTotal</servlet-name>
-        <servlet-class>mypackage.calculateTotal</servlet-class>
-=======
-        <servlet-name>Report</servlet-name>
-        <servlet-class>mypackage.Report</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>VehicleReport</servlet-name>
         <servlet-class>mypackage.VehicleReport</servlet-class>
->>>>>>> 1580c838cb9b3158a2fb9855b0aa8d324cc0f6c7
+    </servlet>
+    <servlet>
+        <servlet-name>MonthlyReport</servlet-name>
+        <jsp-file>/reportMonthly.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>YearlyReport</servlet-name>
+        <jsp-file>/reportYearly.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>User</servlet-name>
@@ -78,7 +77,6 @@
         <url-pattern>/DeleteUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>EditPart</servlet-name>
         <url-pattern>/EditPart</url-pattern>
     </servlet-mapping>
@@ -87,16 +85,16 @@
         <url-pattern>/addMaintenance</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>calcTotal</servlet-name>
-        <url-pattern>/calcTotal</url-pattern>
-=======
-        <servlet-name>Report</servlet-name>
-        <url-pattern>/Report</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>VehicleReport</servlet-name>
         <url-pattern>/VehicleReport</url-pattern>
->>>>>>> 1580c838cb9b3158a2fb9855b0aa8d324cc0f6c7
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MonthlyReport</servlet-name>
+        <url-pattern>/reportMonthly</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>YearlyReport</servlet-name>
+        <url-pattern>/reportYearly</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

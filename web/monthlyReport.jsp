@@ -20,7 +20,7 @@
                <div class="page-header">
                         <h2>Monthly Maintenance Report</h2>
                 </div>
-                <form class="form-horizontal" method="GET" action="./Report">
+                <form class="form-horizontal" method="GET" action="./reportMonthly">
                         <div class="form-group">
                           <label class="col-sm-2 control-label">Month</label>
                           <div class="col-sm-5">
@@ -37,7 +37,6 @@
                         
                         <div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" href="./CostReport" class="btn btn-success">Cost Report</button>
                             <button type="submit" class="btn btn-success">Detail Report</button>
                           </div>
                           </div>

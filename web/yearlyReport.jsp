@@ -20,7 +20,7 @@
                         <h2>Yearly Maintenance Report</h2>
                 </div>
                
-               <form class="form-horizontal" method="GET" action="./Report">
+               <form class="form-horizontal" method="GET" action="./reportYearly">
                         <div class="form-group">
                           <label class="col-sm-2 control-label">Year</label>
                           <div class="col-sm-5">

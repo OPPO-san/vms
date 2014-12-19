@@ -29,10 +29,7 @@
             <li><a href="home.jsp"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-plane"></span> Vehicle<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-<<<<<<< HEAD
-=======
                     <li><a href="addVehicle.jsp">Add New Vehicle</a></li>
->>>>>>> f641a18cc0834bd04149d31f16cbcf1ac17956b4
                     <li><a href="display_vehicle.jsp">Manage Vehicle Data</a></li>
                     <li><a href="vehicleMaintenance.jsp">Manage Vehicle Maintenance</a></li>
                     <li><a href="viewSparePart.jsp">Manage Spare Part</a></li>
