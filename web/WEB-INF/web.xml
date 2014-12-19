@@ -38,7 +38,7 @@
     </servlet>
     <servlet>
         <servlet-name>VehicleReport</servlet-name>
-        <servlet-class>mypackage.VehicleReport</servlet-class>
+        <jsp-file>/vehicleReport.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>MonthlyReport</servlet-name>
