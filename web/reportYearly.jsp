@@ -13,7 +13,7 @@
     <% String year = request.getParameter("year");  %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Monthly Report</title>
+        <title>Yearly Report</title>
     </head>
     <body>
         <%
