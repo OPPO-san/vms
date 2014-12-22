@@ -7,13 +7,17 @@
         <title>Maintenance</title>
     </head>
     <body>
+        <div class="container">
+           <div class="row">
+             <div class="table-responsive"> 
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">Schedule</div>
+                     <div class="panel-body">
         <%@ page import="mypackage.*, java.sql.*" %>
         <%! String sql="SELECT MAINTENANCE.SIRI_NUM, MAINTENANCE.PLATE_NUM, DATE_OF_MAINTENANCE, MAINTENANCE_TYPE, VEHICLE.MILEAGE, VEHICLE.SERVICE_MILEAGE, SERVICE.SERVICE_COST, SERVICE.PAYMENT"
                 +" FROM MAINTENANCE JOIN VEHICLE ON MAINTENANCE.PLATE_NUM=VEHICLE.PLATE_NUM "
                 + "JOIN SERVICE ON MAINTENANCE.SIRI_NUM=SERVICE.SIRI_NUM"; %>
-        <div class="container">
-            <div class="row">
-                <div class="panel-body">        
+              
                     <table class="table">
                         <th>SIRI number</th>
                         <th>Plate Number</th>
@@ -46,11 +50,15 @@
                     <%}%>
                     </table>
                 </div>
-            </div>
+                  </div>
+             </div>
+           </div>
         </div>
+        
         <div>
             <br>
             <jsp:include page="Footer.jsp" />
         </div>
+           
     </body>
 </html>

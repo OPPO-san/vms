@@ -44,6 +44,9 @@
         <div class="container">
            <div class="row">
              <div class="table-responsive"> 
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">Manage Vehicle Maintenance</div>
+                    <div class="panel-body">
                 <a href="addMaintenance.jsp">
 	            <img src="image/add.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
 	        </a> 
@@ -55,7 +58,7 @@
                       <th>Plat No.</th>
                       <th>Date Of Maintenance</th>
                       <th>Type Of Maintenance</th>
-                      <th>Mileage</th>
+                      <th>Millege</th>
                       <th>Service  ID</th>
                       <th>Action</th>
                      
@@ -68,7 +71,7 @@
                       <td><%= resultset.getString("PLATE_NUM") %></td>
                       <td><%= resultset.getString("DATE_OF_MAINTENANCE") %></td>
                       <td><%= resultset.getString("MAINTENANCE_TYPE") %></td>
-                      <td><%= resultset.getString("MILEAGE") %></td>
+                      <td></td>
                       <td><%= resultset.getString("SERVICE_ID") %></td>
                       <td>
                         
@@ -86,6 +89,9 @@
                    <% } %>
                   </tbody>
                 </table>
+                 </div>
+                    </div>
+                  </div>
                  </div>
               </div>
            </div>
