@@ -11,7 +11,11 @@
         <%! String sql="SELECT * FROM SERVICE "; %>
         <div class="container">
             <div class="row">
-                <div class="panel-body">        
+                <div class="table-responsive"> 
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">Service</div>
+                    <div class="panel-body">
+                        
                     <table class="table">
                         <th>Service ID</th>
                         <th>Siri Number</th>
@@ -26,9 +30,13 @@
                             <td><%= rs.getString(i)%></td>
                             <%}
                        }%>
-        <div>
-            <br>
-            <jsp:include page="Footer.jsp" />
+                       </div>
+                  </div>
+                </div>
+            </div>
         </div>
-    </body>
+    </div>
+            <br>
+         </body>
+    <jsp:include page="Footer.jsp" />
 </html>
