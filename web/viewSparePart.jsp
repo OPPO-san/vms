@@ -35,10 +35,13 @@
         <div class="container">
            <div class="row">
              <div class="table-responsive"> 
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">Manage Spare Part</div>
+                    <div class="panel-body">
                 <a href="addSparePart.jsp">
 	            <img src="image/add.ico" alt="HTML tutorial" style="width:42px;height:42px;border:0">
 	        </a> 
-                 <table class="table table-striped table-bordered">
+                 <table class="table">
                   <thead>
                     <tr>
                       <th>Spare Part ID</th>
@@ -73,6 +76,8 @@
                   </tbody>
                 </table>
               </div>
+                  </div>
+             </div>
            </div>
         </div>
     </body>
